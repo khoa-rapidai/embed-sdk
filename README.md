@@ -7,7 +7,10 @@ The Looker JavaScript Embed SDK is designed to facilitate using Looker embedded 
 A typical setup might look like this. In this case, a dashboard with an id of `11` is created inside a DOM element with the id `dashboard`. The `dashboard:run:start` and `dashboard:run:complete` events are used to update the state of the embedding window's UI, and a button with an id of `run` is scripted to send a `dashboard:run` message to the dashboard.
 
 ```javascript
-LookerEmbedSDK.init('looker.example.com', '/auth')
+const headers = []
+// headers['Authorization'] = 'UPDATE_ME';
+
+LookerEmbedSDK.init('looker.example.com', '/auth', headers)
 
 const setupDashboard = (dashboard) => {
   document.querySelector('#run').addEventListener('click', () => {
